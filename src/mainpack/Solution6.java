@@ -42,48 +42,39 @@ public class Solution6 {
 	            {
 	            	totalCombination = totalCombination.multiply(BigInteger.valueOf((c-1)));
 	            }
-	            else if(i==n && i ==2)
-	            {
-	            	long totalCombinationDup = 1L;
-	            	single = c;
-	            	straight = (c-1);	   
-	            	inverse = (c-1);	            	
-	            	//totalCombination *= (long) (single*(Math.pow(straight, 2)));
-	            	
-	            	totalCombinationDup = (long) (single*straight*inverse);
-	            	totalCombination = totalCombination.multiply(BigInteger.valueOf(totalCombinationDup));
-	            }
-	            
+	          
 	            else if(i == n)
 	            {
 	            	long totalCombinationDup = 1L;
 	            	single = c;
-	            	straight = (long) Math.pow((i-1),(c-1));	   
-	            	inverse = (long) Math.pow((i-1),(c-1));	    
+	            	straight = (long) Math.pow((c-1),(i-1));	   
+	            	inverse = (long) Math.pow((c-1),(i-1));	    
 	            	totalCombinationDup = (long) (single*straight*inverse);
 	            	totalCombination = totalCombination.multiply(BigInteger.valueOf(totalCombinationDup));
 	            }
-	            else if(i == 2)
-	            {
-	            	long totalCombinationDup = 1L;
-	            	single = c-1;
-	            	straight = (c-2);	   
-	            	inverse = c-1;	            	
-	            	totalCombinationDup = (long) (single*straight*inverse);
-	            	totalCombination = totalCombination.multiply(BigInteger.valueOf(totalCombinationDup));
-	            }
+	          
 	            else
 	            {
 	            	long totalCombinationDup = 1L;
 	            	single = (c-1);
-	            	straight = (long) Math.pow((i-1),(c-2));	   
-	            	inverse = (long) Math.pow((i-1),(c-1));	            	
+	            	/*straight = (long) Math.pow((i-1),(c-2));	   
+	            	inverse = (long) Math.pow((i-1),(c-1));	    */ 
+	            	straight = (long) Math.pow((c-2),(i-1));	   
+	            	inverse = (long) Math.pow((c-1),(i-1));	    
 	            	totalCombinationDup = (long) (single*straight*inverse);
 	            	totalCombination = totalCombination.multiply(BigInteger.valueOf(totalCombinationDup));
+	            	
+	            	long madValDup = (long) (Math.pow(10, 18)+7);
+	            	long madValNew = (long) (Math.pow(10, 9)+7);
+	            	int res  = totalCombination.compareTo(BigInteger.valueOf(madValDup));
+	            	if(res == 1)
+	            	{
+	            		totalCombination = totalCombination.mod(BigInteger.valueOf(madValNew));
+	            	}
 	            }
 	        }
 			}
-			 long madVal = (long) (Math.pow(10, 7)+7);
+			 long madVal = (long) (Math.pow(10, 9)+7);
 				//totalCombination  = (long) ((totalCombination) % (Math.pow(10, 7)+7));
 				 totalCombination = totalCombination.mod(BigInteger.valueOf(madVal));
 			//totalCombination  = (long) ((totalCombination) % (Math.pow(10, 7)+7));
