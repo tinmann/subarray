@@ -14,11 +14,8 @@ public class CandidateCode {
 		 
 		 for(int i=0;i<arrayStringInput.length;i++)
 		 {
-			 int tempLength = (arrayStringInput.length)-i;
-			 
-			 if(i == arrayStringInput.length-1)
-				toManipul[arrayStringInput.length-1] = arrayStringInput[i];			 			 
-             else if((tempLength)%2 == 1)          	              					 
+			 int tempLength = (arrayStringInput.length)-i;			 					 
+              if((tempLength)%2 == 1)          	              					 
 			   toManipul[(tempLength)/2 + i] = arrayStringInput[i];				 				
 		     else			 		    	
 		        toManipul[(arrayStringInput.length-1) - (((tempLength)/2) + i)] =  arrayStringInput[i];	 		    	 			 
