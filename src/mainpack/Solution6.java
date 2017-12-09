@@ -51,6 +51,12 @@ public class Solution6 {
 	            	inverse = (long) Math.pow((c-1),(i-1));	    
 	            	totalCombinationDup = (long) (single*straight*inverse);
 	            	totalCombination = totalCombination.multiply(BigInteger.valueOf(totalCombinationDup));
+	            	long madValNew = (long) (Math.pow(10, 9)+7);
+	            	int res  = totalCombination.compareTo(BigInteger.valueOf(madValNew));
+	            	if(res == 1)
+	            	{
+	            		totalCombination = totalCombination.mod(BigInteger.valueOf(madValNew));
+	            	}
 	            }
 	          
 	            else
@@ -64,9 +70,9 @@ public class Solution6 {
 	            	totalCombinationDup = (long) (single*straight*inverse);
 	            	totalCombination = totalCombination.multiply(BigInteger.valueOf(totalCombinationDup));
 	            	
-	            	long madValDup = (long) (Math.pow(10, 18)+7);
+	            	//long madValDup = (long) (Math.pow(10, 18)+7);
 	            	long madValNew = (long) (Math.pow(10, 9)+7);
-	            	int res  = totalCombination.compareTo(BigInteger.valueOf(madValDup));
+	            	int res  = totalCombination.compareTo(BigInteger.valueOf(madValNew));
 	            	if(res == 1)
 	            	{
 	            		totalCombination = totalCombination.mod(BigInteger.valueOf(madValNew));
