@@ -17,31 +17,13 @@ public class CandidateCode {
 			 int tempLength = (arrayStringInput.length)-i;
 			 
 			 if(i == arrayStringInput.length-1)
-			 {
-				 toManipul[i+1] = arrayStringInput[i];
-				 toManipul[arrayStringInput.length-1] = arrayStringInput[arrayStringInput.length-3];				 
-			 }			 
-             else if((tempLength)%2 == 1)
-			 {           	  
-            	 int k = 0;
- 		    	 while(toManipul[((tempLength)/2) +1 + k] != '\u0000') 		    		
- 		    		 k++;		    	 
-				 
-				 if( toManipul[(tempLength)/2 + 1 + k ] == '\u0000')				 
-					 toManipul[(tempLength)/2 + 1+ i] = arrayStringInput[i];				 				
-			 }
-		     else
-			 {
-		    	 int k = 0;
-		    	 while(toManipul[((tempLength)/2) + k] != '\u0000') 
-		    		 k--;
-		    	 
-		    	 if( toManipul[((tempLength)/2) + k] == '\u0000')				 
-		    		 toManipul[((tempLength)/2) + k] =  arrayStringInput[i];				 		    			
-			 }
-		 }
-		 		
-		 return new String(toManipul, 1, arrayStringInput.length);
+				toManipul[arrayStringInput.length-1] = arrayStringInput[i];			 			 
+             else if((tempLength)%2 == 1)          	              					 
+			   toManipul[(tempLength)/2 + i] = arrayStringInput[i];				 				
+		     else			 		    	
+		        toManipul[(arrayStringInput.length-1) - (((tempLength)/2) + i)] =  arrayStringInput[i];	 		    	 			 
+		 }		 
+		 return new String(toManipul);	 				
     }
 	
 	public static void main(String[] args) throws IOException{
